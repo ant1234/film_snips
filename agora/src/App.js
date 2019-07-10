@@ -6,8 +6,9 @@ import Homepage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import MarketPage from "./pages/MarketPage";
 import Navbar from "./components/Navbar";
-
 import "./App.css";
+
+export const UserContext = React.createContext()
 
 class App extends React.Component {
 
@@ -57,7 +58,9 @@ class App extends React.Component {
     
     return !user ? (
       <Authenticator />
-    ) : <Router>
+    ) : (
+        <UserContext.Provider value={{ user }}>
+        <Router>
           <>
             {/* Navigation */}
             <Navbar user = { user } handleSignout={this.handleSignout} />
@@ -72,7 +75,9 @@ class App extends React.Component {
 
             </div>
           </>
-        </Router>;
+        </Router>
+        </UserContext.Provider>
+    );
   }
 }
 

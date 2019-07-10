@@ -38,3 +38,5 @@
 
 sort out a schehema
 
+- run npm install inside Agora 
+
