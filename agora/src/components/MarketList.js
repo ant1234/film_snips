@@ -7,7 +7,7 @@ import { Loading, Card, Icon, Tag } from "element-react";
 import { Link } from "react-router-dom";
 import Error from "./Error";
 
-const MarketList = () => {
+const MarketList = ({ searchResults }) => {
 
   const onNewMarket = (prevQuery, newData) => {
     let updatedQuery = {...prevQuery };
@@ -30,14 +30,30 @@ const MarketList = () => {
 
           if(errors.length > 0) return <Error errors={errors}/>
           if(loading) return <Loading fullscreen={true}/>
-
+          const markets = searchResults.length > 0 ? searchResults : data.listMarkets.items;
           return (
             <>
-              <h2 className="header">
-                Markets
-                <img src="http://icon.now.sh/store_mall_directory/527FFF" alt="Store Icon" className="large-icon"/>
-              </h2>
-              {data.listMarkets.items.map(market => (
+                {searchResults.length > 0 ? (
+
+                    <h2 className="text-green">
+                        <Icon type="success" name="check" className="icon"/>
+                        {searchResults.length} Results
+                    </h2>
+
+                ):(
+
+                    <h2 className="header">
+
+                    <img
+                        src="http://icon.now.sh/store_mall_directory/527FFF"
+                        alt="Store Icon"
+                        className="large-icon"
+                    />
+                    Markets
+                </h2> )}
+
+
+              {markets.map(market => (
                 <div key={market.id} className="my-2">
                   <Card
                     bodyStyle={{
