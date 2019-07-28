@@ -115,8 +115,13 @@ class Product extends React.Component {
                   <span className="mx-1">
                     ${convertCentsToDollars(product.price)}
                   </span>
+
+                      {/* This should be NOT "!isProductOwner" but reversed for testing */}
                       {isProductOwner && (
-                          <PayButton/>
+                          <PayButton
+                            product={product}
+                            user={user}
+                          />
                       )}
                     </div>
                   </div>
