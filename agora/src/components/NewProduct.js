@@ -94,7 +94,7 @@ class NewProduct extends React.Component {
               />
             </Form.Item>
 
-            <Form.Item>
+            <Form.Item label="Product Shipped Or Emailed">
               <div className="text-center">
                 <Radio
                   value="true"
