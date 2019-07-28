@@ -42,8 +42,6 @@ class Product extends React.Component {
         type: "success"
       });
 
-      setTimeout(() => window.location.reload(), 3000 );
-
     } catch(err){
 
       console.error(`Failed to update the product with id : ${productId}`, err);
@@ -71,8 +69,6 @@ class Product extends React.Component {
         type: "success",
         duration:2000
       });
-
-      setTimeout(() => window.location.reload(), 3000 );
 
     } catch(err) {
 
