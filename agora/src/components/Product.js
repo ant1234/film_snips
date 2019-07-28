@@ -117,7 +117,7 @@ class Product extends React.Component {
                   </span>
 
                       {/* This should be NOT "!isProductOwner" but reversed for testing */}
-                      {isProductOwner && (
+                      {!isProductOwner && (
                           <PayButton
                             product={product}
                             user={user}

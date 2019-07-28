@@ -4,11 +4,11 @@ import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 
 const stripeConfig = {
-  currency: "NZD",
+  currency: "USD",
   publishableAPIKey: "pk_test_eWKk1yKTQXXo3brVMHe2z15H"
 };
 
-const PayButton = ( product, user ) => {
+const PayButton = ({product, user}) => {
   return (
     <StripeCheckout
       email={user.email}
